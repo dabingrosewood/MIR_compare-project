@@ -155,7 +155,7 @@ with graph.as_default():
 				writer.add_summary(summary, total_global_index_counter)
 				#print 'SAVING TO TENSORBOARD'
 			if iteration_number%1000 == 0 and iteration_number !=0:
-				save_path = saver.save(sess, "models/siamese.ckpt", global_step=total_global_index_counter)
+				save_path = saver.save(sess, "model/siamese.ckpt", global_step=total_global_index_counter)
 				print("saved to %s" % save_path)
 		global_pair_counter = 0
 		print (' EPOCH DONE == ' + str(epoch))

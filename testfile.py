@@ -86,7 +86,7 @@ def simhash_method(doc1,doc2,threshold):
 
 
 
-
+size=5000
 TRAIN_CSV = 'data/test.csv'
 
 # Load training set
@@ -97,7 +97,7 @@ tp1=tp2=tp3=tp4=0
 tn1=tn2=tn3=tn4=0
 fp1=fp2=fp3=fp4=0
 fn1=fn2=fn3=fn4=0
-for i in range(5000):
+for i in range(size):
     a=df.iloc[i][0]
     b=df.iloc[i][1]
     c=df.iloc[i][2]
@@ -155,11 +155,16 @@ for i in range(5000):
 
 
 # print("acc=",sum1/50000,sum2/50000,sum3/50000)
-print("F1_levenstein=",2*tp1/(2*tp1+fp1+fn1),'\n')
-print("F1_simhash=",2*tp2/(2*tp2+fp2+fn2),'\n')
-print("F1_word2doc_avg=",2*tp3/(2*tp3+fp3+fn3),'\n')
-print("F1_word2doc_wmd=",2*tp4/(2*tp4+fp4+fn4),'\n')
+# print("F1_levenstein=",2*tp1/(2*tp1+fp1+fn1),'\n')
+# print("F1_simhash=",2*tp2/(2*tp2+fp2+fn2),'\n')
+# print("F1_word2doc_avg=",2*tp3/(2*tp3+fp3+fn3),'\n')
+# print("F1_word2doc_wmd=",2*tp4/(2*tp4+fp4+fn4),'\n')
 
+
+print("F1_levenstein=",(tp1+tn1)/size,'\n')
+print("F1_simhash=",(tp2+tn2)/size,'\n')
+print("F1_word2doc_avg=",(tp3+tn3)/size,'\n')
+print("F1_word2doc_wmd=",(tp4+tn4)/size,'\n')
 
 # print(Simhash('xxx').value)
 # print (Simhash(' How can I succeed in medical school').distance(Simhash('What are some tips for success in medical school?')))
